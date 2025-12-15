@@ -1,0 +1,9 @@
+1. MVVM penting karena memisahkan tampilan dari logika dan data, jadi kode lebih rapi, mudah dites, dan mudah dirawat. Model biasanya file data dan sumber data seperti Movie.kt, MovieRepository.kt, MovieDao.kt, dan MovieDatabase.kt. View biasanya file UI seperti activity_main.xml, view_movie_item.xml, MainActivity.kt, DetailsActivity.kt, dan adapter seperti MovieAdapter.kt. ViewModel biasanya file MovieViewModel.kt.
+
+2. Data Binding lebih efisien karena mengurangi pemanggilan findViewById dan set value manual satu per satu. UI bisa langsung terhubung ke data dan lebih mudah otomatis ter-update, jadi kode lebih sedikit dan lebih minim risiko error.
+
+3. Singleton Pattern penting supaya MovieDatabase.getInstance() hanya membuat satu instance database untuk seluruh app. Ini mencegah banyak koneksi database, menghindari konflik data, dan lebih hemat resource.
+
+4. Repository Pattern penting karena Repository jadi penghubung yang merapikan akses data dari API dan database. ViewModel tidak perlu tahu detail Retrofit atau Room, jadi arsitektur lebih bersih, mudah diganti sumber datanya, dan lebih mudah dites.
+
+5. Ada cara lain selain Worker, misalnya refresh saat user membuka halaman dengan memanggil API lalu update Room, atau pakai swipe to refresh, atau pakai polling dengan coroutine ketika app sedang aktif. Worker dipakai karena bisa jalan terjadwal walau aplikasi ditutup. Tetapi kalau cukup saat aplikasi aktif, cara tersebut bisa dipakai.
